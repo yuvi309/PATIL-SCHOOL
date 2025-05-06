@@ -14,6 +14,8 @@ navDropdowns.forEach(dropdown => {
 });
 // On page load, always close dropdowns (fix stuck state after navigation)
 window.addEventListener('DOMContentLoaded', function() {
+
+
   navDropdowns.forEach(d => d.classList.remove('open'));
   sessionStorage.removeItem('navDropdownOpen');
 });
@@ -24,15 +26,22 @@ document.addEventListener('click', function(e) {
 });
 
 // Hero Image Slider
-const slides = document.querySelectorAll('.hero-slider .slide');
-let currentSlide = 0;
-if (slides.length > 0) {
-    setInterval(() => {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }, 3000);
-}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    let currentSlide = 0;
+    console.log('Slider initialized. Number of slides:', slides.length);
+    if (slides.length > 0) {
+        setInterval(() => {
+            console.log('Switching from slide', currentSlide, 'to', (currentSlide + 1) % slides.length);
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 3000);
+    } else {
+        console.log('No slides found in .hero-slider.');
+    }
+});
 
 // Simple fade-in animation on scroll
 const observer = new IntersectionObserver(entries => {
@@ -54,40 +63,77 @@ const closeMandatoryModal = document.getElementById('closeMandatoryModal');
 const docViewer = document.getElementById('docViewer');
 
 const docLinks = {
-  'society': 'https://example.com/docs/society.pdf',
-  'certificate': 'https://example.com/docs/certificate.pdf',
-  'smc': 'https://example.com/docs/smc.pdf',
-  'pta': 'https://example.com/docs/pta.pdf',
-  'academic-calendar': 'https://example.com/docs/academic-calendar.pdf',
+  'noc-ap-recognition': 'https://example.com/docs/noc-ap-recognition.pdf',
+  'society-registration': 'https://example.com/docs/society-registration.pdf',
+  'school-managing-committee': 'https://example.com/docs/school-managing-committee.pdf',
+  'affidavit-non-commercial': 'https://example.com/docs/affidavit-non-commercial.pdf',
+  'balance-sheet-2024-25': 'https://example.com/docs/balance-sheet-2024-25.pdf',
+  'prospectus': 'https://example.com/docs/prospectus.pdf',
   'fee-structure': 'https://example.com/docs/fee-structure.pdf',
-  'self-certificate': 'https://example.com/docs/self-certificate.pdf',
-  'fire-safety': 'https://example.com/docs/fire-safety.pdf',
-  'drinking-water': 'https://example.com/docs/drinking-water.pdf',
-  'building-safety': 'https://example.com/docs/building-safety.pdf',
-  'state-registration': 'https://example.com/docs/state-registration.pdf',
-  'noc': 'https://example.com/docs/noc.pdf',
-  'mandatory-disclosure': 'https://example.com/docs/mandatory-disclosure.pdf',
-  'affidavit': 'https://example.com/docs/affidavit.pdf',
-  'water-sample-test': 'https://example.com/docs/water-sample-test.pdf',
-  'land-certificate': 'https://example.com/docs/land-certificate.pdf'
+  'staff-statement': 'https://example.com/docs/staff-statement.pdf',
+  'service-conditions': 'https://example.com/docs/service-conditions.pdf',
+  'acquittance-roll-2025': 'https://example.com/docs/acquittance-roll-2025.pdf',
+  'staff-allowances': 'https://example.com/docs/staff-allowances.pdf',
+  'esi-pf': 'https://example.com/docs/esi-pf.pdf',
+  'staff-confirmation': 'https://example.com/docs/staff-confirmation.pdf',
+  'bankers-certificate-salaries': 'https://example.com/docs/bankers-certificate-salaries.pdf',
+  'site-building-plan': 'https://example.com/docs/site-building-plan.pdf',
+  'lease-agreement': 'https://example.com/docs/lease-agreement.pdf',
+  'certificate-of-land': 'https://example.com/docs/certificate-of-land.pdf',
+  'infrastructure-details': 'https://example.com/docs/infrastructure-details.pdf',
+  'playground-details': 'https://example.com/docs/playground-details.pdf',
+  'sanitary-health-certificate': 'https://example.com/docs/sanitary-health-certificate.pdf',
+  'fire-safety-certificate': 'https://example.com/docs/fire-safety-certificate.pdf',
+  'safe-drinking-water': 'https://example.com/docs/safe-drinking-water.pdf',
+  'soundness-certificate': 'https://example.com/docs/soundness-certificate.pdf',
+  'library-subject-details': 'https://example.com/docs/library-subject-details.pdf',
+  'journals-periodicals': 'https://example.com/docs/journals-periodicals.pdf',
+  'library-budget-undertaking': 'https://example.com/docs/library-budget-undertaking.pdf',
+  'lab-equipment-budget': 'https://example.com/docs/lab-equipment-budget.pdf',
+  'bankers-certificate-school-society': 'https://example.com/docs/bankers-certificate-school-society.pdf',
+  'school-reserve-fund': 'https://example.com/docs/school-reserve-fund.pdf',
+  'student-strength': 'https://example.com/docs/student-strength.pdf',
+  'school-base-certificate': 'https://example.com/docs/school-base-certificate.pdf',
+  'sports-games-undertaking': 'https://example.com/docs/sports-games-undertaking.pdf'
 };
+
+function viewMandatoryDoc(docKey) {
+  const docViewer = document.getElementById('docViewer');
+  const url = docLinks[docKey];
+  if (url) {
+    docViewer.innerHTML = `<div class='doc-viewer-anim'><iframe src='${url}' width='100%' height='500px' style='border-radius:12px;'></iframe></div>`;
+    const dv = docViewer.querySelector('.doc-viewer-anim');
+    if (dv) {
+      dv.style.opacity = 0;
+      dv.style.transform = 'scale(0.98) translateY(40px)';
+      setTimeout(() => {
+        dv.style.transition = 'all 0.5s cubic-bezier(.77,0,.18,1)';
+        dv.style.opacity = 1;
+        dv.style.transform = 'scale(1) translateY(0)';
+      }, 30);
+    }
+  } else {
+    docViewer.innerHTML = '<em>No document available.</em>';
+  }
+}
 
 if (mandatoryNav && mandatoryModal && closeMandatoryModal) {
   mandatoryNav.addEventListener('click', function(e) {
     e.preventDefault();
-    mandatoryModal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+    openMandatoryModal();
   });
   closeMandatoryModal.addEventListener('click', function() {
-    mandatoryModal.style.display = 'none';
-    document.body.style.overflow = '';
-    docViewer.innerHTML = '<p>Select a document to view.</p>';
+    closeMandatoryModalFn();
   });
-  window.addEventListener('click', function(e) {
-    if (e.target === mandatoryModal) {
-      mandatoryModal.style.display = 'none';
-      document.body.style.overflow = '';
-      docViewer.innerHTML = '<p>Select a document to view.</p>';
+  // Close modal on overlay click
+  const overlay = document.getElementById('mandatoryModalOverlay');
+  if (overlay) {
+    overlay.addEventListener('click', closeMandatoryModalFn);
+  }
+  // Close modal on Esc key
+  document.addEventListener('keydown', function(e) {
+    if (mandatoryModal.classList.contains('show') && (e.key === 'Escape' || e.key === 'Esc')) {
+      closeMandatoryModalFn();
     }
   });
   document.querySelectorAll('.mandatory-list li').forEach(function(item) {
@@ -106,207 +152,6 @@ if (mandatoryNav && mandatoryModal && closeMandatoryModal) {
     });
   });
 }
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.nav-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-}
-nav ul li {
-    position: relative;
-}
-nav ul li.dropdown > .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 110%;
-    left: 0;
-    background: #fff;
-    min-width: 170px;
-    box-shadow: 0 6px 24px rgba(42,125,173,0.12);
-    border-radius: 12px;
-    padding: 0.5rem 0;
-    z-index: 1000;
-}
-nav ul li.dropdown:hover > .dropdown-menu {
-    display: block;
-}
-nav ul li.dropdown.open > .dropdown-menu {
-    display: block;
-}
-@media (max-width: 900px) {
-    nav ul li.dropdown:hover > .dropdown-menu {
-        display: none;
-    }
-    nav ul li.dropdown.open > .dropdown-menu {
-        display: block;
-    }
-}
-nav ul li.dropdown > a {
-    cursor: pointer;
-    user-select: none;
-}
-nav ul li .dropdown-menu a {
-    color: #2A7DAD;
-    padding: 0.7rem 1.2rem;
-    display: block;
-    text-decoration: none;
-    font-weight: 500;
-    border-radius: 8px;
-    transition: background 0.18s, color 0.18s;
-}
-nav ul li .dropdown-menu a:hover {
-    background: #eaf5e0;
-    color: #43a047;
-}
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-.logo img {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #ffd600;
-}
-.logo span {
-    font-size: 1.2rem;
-    font-weight: 600;
-    line-height: 1.1;
-}
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-}
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
-}
-nav a:hover {
-    color: #9bbc44;
-}
-.hero {
-    background: #1a237e;
-    color: #fff;
-    min-height: 340px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-.hero-slider {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-.hero-slider img.slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1s;
-    left: 0; top: 0;
-}
-.hero-slider img.slide.active {
-    opacity: 0.7;
-    z-index: 2;
-}
-.hero-content {
-    z-index: 3;
-    position: relative;
-}
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 1.2rem;
-}
-.btn {
-    background: #9bbc44;
-    color: #fff;
-    font-weight: 600;
-    padding: 0.7rem 2rem;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.2s, color 0.2s;
-    text-decoration: none;
-    display: inline-block;
-}
-.btn:hover {
-    background: #2A7DAD;
-    color: #fff;
-}
-section {
-    margin: 2.5rem 0;
-}
-h2 {
-    color: #2A7DAD;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-.about-section ul.highlights {
-    display: flex;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-    padding: 0;
-    list-style: none;
-    margin: 1rem 0 0 0;
-}
-.about-image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 1.5rem;
-    margin: 2.5rem 0 1.5rem 0;
-}
-.about-image-item {
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 4px 16px rgba(42,125,173,0.10), 0 1.5px 8px rgba(67,160,71,0.08);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.2rem 1rem 1rem 1rem;
-    transition: transform 0.18s, box-shadow 0.18s;
-}
-.about-image-item img {
-    width: 100%;
-    max-width: 170px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 0.8rem;
-    background: #e0eafc;
-}
-.about-image-item span {
-    font-weight: 600;
-    color: #2A7DAD;
     font-size: 1.08rem;
     text-align: center;
     margin-top: 0.2rem;
@@ -436,11 +281,7 @@ form#admissionForm {
     box-shadow: 0 2px 8px rgba(26,35,126,0.04);
     max-width: 550px;
 }
-form#admissionForm input, form#admissionForm select {
-    flex: 1 1 200px;
-    padding: 0.8rem;
-    border-radius: 6px;
-    border: 1px solid #bdbdbd;
+
     font-size: 1rem;
 }
 form#admissionForm button {
@@ -627,11 +468,7 @@ footer {
     gap: 1.2rem;
     margin-top: 1rem;
 }
-.gallery-grid img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
+
     box-shadow: 0 2px 8px rgba(26,35,126,0.07);
     transition: transform 0.25s, box-shadow 0.25s;
 }
