@@ -1,0 +1,132 @@
+/* Mobile Responsive Enhancements for Patil School Website */
+
+@media (max-width: 900px) {
+    .container {
+        width: 98vw;
+        max-width: 100vw;
+        padding: 0 1vw !important;
+    }
+    .nav-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 0.7rem;
+        width: 100%;
+        background: #2A7DAD;
+        border-radius: 0 0 12px 12px;
+        padding: 0.5rem 0;
+    }
+    nav ul li {
+        width: 100%;
+    }
+    nav ul li a, header nav ul li a {
+        width: 100%;
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+        text-align: left;
+    }
+    .logo {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.7rem;
+    }
+    .logo img {
+        width: 40px;
+        height: 40px;
+    }
+    .logo .patil-title {
+        font-size: 1.4rem;
+    }
+    .logo .primary-title, .logo .montessori-title {
+        font-size: 1rem;
+    }
+    .hero-content h1, .hero-title-adv {
+        font-size: 1.3rem;
+    }
+    .hero-content p, .hero-subtitle-adv {
+        font-size: 1rem;
+    }
+    .hero-slider-wrapper {
+        max-width: 100vw;
+        min-height: 180px;
+    }
+    .hero-slider img {
+        height: 180px;
+        object-fit: cover;
+    }
+    .mandatory-table, .mandatory-table th, .mandatory-table td {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.5rem;
+    }
+    .mandatory-table th, .mandatory-table td {
+        white-space: normal;
+    }
+    .mandatory-table {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+    }
+    .mandatory-table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.7rem;
+        box-shadow: none;
+    }
+    .mandatory-table th, .mandatory-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 7px;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.5rem;
+    }
+    .gallery-grid img {
+        height: 90px;
+    }
+    .footer-flex {
+        flex-direction: column;
+        gap: 0.7rem;
+        text-align: center;
+    }
+    .footer-links, .footer-social {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .btn, .view-btn {
+        font-size: 1rem;
+        padding: 0.6em 1.3em;
+    }
+    section, .about-section, .courses-section, .facilities-section, .gallery-section, .admission-section, .contact-section {
+        margin: 1.2rem 0;
+        padding: 0.4rem 0.2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo img {
+        width: 32px;
+        height: 32px;
+    }
+    .logo .patil-title {
+        font-size: 1rem;
+    }
+    .logo .primary-title, .logo .montessori-title {
+        font-size: 0.84rem;
+    }
+    .hero-content h1, .hero-title-adv {
+        font-size: 1.02rem;
+    }
+    .hero-content p, .hero-subtitle-adv {
+        font-size: 0.8rem;
+    }
+    .btn, .view-btn {
+        font-size: 0.9rem;
+        padding: 0.5em 1em;
+    }
+}

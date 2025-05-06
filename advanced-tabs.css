@@ -1,0 +1,55 @@
+/* Advanced Navigation Tab Styles for Main Tabs (Home, About Us, Mandatory Public Disclosure, Contact Us) */
+nav > ul > li > a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.7rem 1.5rem;
+    border-radius: 12px 12px 0 0;
+    position: relative;
+    display: inline-block;
+    transition: color 0.22s, background 0.22s;
+    z-index: 1;
+    background: none;
+}
+nav > ul > li > a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    bottom: 8px;
+    height: 3px;
+    background: linear-gradient(90deg, #ffd600 0%, #2A7DAD 100%);
+    border-radius: 2px;
+    opacity: 0;
+    transform: scaleX(0.3);
+    transition: all 0.35s cubic-bezier(.77,0,.18,1);
+    z-index: -1;
+}
+nav > ul > li > a:hover::after, nav > ul > li > a.active::after {
+    opacity: 1;
+    left: 12%;
+    right: 12%;
+    transform: scaleX(1);
+}
+nav > ul > li > a:hover, nav > ul > li > a:focus {
+    color: #ffd600;
+    background: rgba(42,125,173,0.13);
+    outline: none;
+}
+nav > ul > li > a.active {
+    color: #ffd600 !important;
+    background: #2A7DAD !important;
+    box-shadow: 0 2px 8px rgba(42,125,173,0.13);
+}
+@media (max-width: 700px) {
+    nav ul {
+        flex-direction: column;
+        gap: 0.7rem;
+        border-radius: 0 0 16px 16px;
+    }
+    nav > ul > li > a {
+        border-radius: 12px;
+        padding: 0.7rem 1rem;
+    }
+}
