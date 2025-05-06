@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Gallery - Patil Primary School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="advanced-tabs.css">
+    <link rel="stylesheet" href="mobile-responsive.css">
+    <style>
+        .gallery-container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        .gallery-title {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+            transition: transform 0.2s;
+        }
+        .gallery-grid img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 20px rgba(0,123,255,0.13);
+        }
+        @media (max-width: 600px) {
+            .gallery-grid img { height: 120px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-flex">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Patil Primary School Logo" style="height:55px;">
+                <span>
+  <span class="patil-title">PATIL</span>
+  <span class="primary-title">Primary School</span>
+  <span class="montessori-title">Montessori Bala Mandira</span>
+</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="mandatory.html">Mandatory Public Disclosure</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="gallery-container">
+        <h2 class="gallery-title">School Event Gallery</h2>
+        <div class="gallery-grid">
+            <!-- Images from event galary folder -->
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.10.04 PM (1).jpeg" alt="Event 1">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.10.04 PM.jpeg" alt="Event 2">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.10.06 PM.jpeg" alt="Event 3">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.10.07 PM.jpeg" alt="Event 4">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.10.08 PM (1).jpeg" alt="Event 5">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.23.39 PM (1).jpeg" alt="Event 6">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.23.39 PM.jpeg" alt="Event 7">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.23.40 PM.jpeg" alt="Event 8">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.23.41 PM (1).jpeg" alt="Event 9">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.23.41 PM.jpeg" alt="Event 10">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.23.42 PM (1).jpeg" alt="Event 11">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.23.42 PM.jpeg" alt="Event 12">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.23.43 PM.jpeg" alt="Event 13">
+            <img src="event galary/WhatsApp Image 2025-04-30 at 1.23.44 PM (1).jpeg" alt="Event 14">
+            <img src="event galary/add4.jpeg" alt="Event 16">
+            <img src="event galary/add5.jpeg" alt="Event 17">
+            <img src="event galary/add7.jpeg" alt="Event 18">
+            <img src="event galary/additional_image1.jpeg" alt="Event 19">
+            <img src="event galary/additional_image2.jpeg" alt="Event 20">
+            <img src="event galary/events.jpeg" alt="Event 21">
+            <img src="event galary/slide1.jpeg" alt="Event 22">
+            <img src="event galary/slide2.jpeg" alt="Event 23">
+            <img src="event galary/slide3.jpeg" alt="Event 24">
+            <img src="event galary/slide4.jpeg" alt="Event 25">
+            <!-- Images from images/ folder -->
+            <img src="images/activity.jpeg" alt="Activity">
+            
+            <img src="images/agriculture.jpg" alt="Agriculture Activity">
+            <img src="images/classroom.jpeg" alt="Classroom">
+            <img src="images/culture.jpg" alt="Culture">
+            <img src="images/culture1.jpg" alt="Culture 1">
+            <img src="images/dasara event.jpg" alt="Dasara Event">
+            <img src="images/ganesh idol.jpg" alt="Ganesh Idol">
+            <img src="images/ganesh soil idol.jpg" alt="Ganesh Soil Idol">
+            
+            <img src="images/phamplent.jpeg" alt="Pamphlet">
+            <img src="images/prayer.jpeg" alt="Prayer">
+            
+            <img src="images/rama navami.jpg" alt="Rama Navami">
+            <img src="images/schoolfaculty.jpeg" alt="School Faculty">
+            <img src="images/schoolfaculty1.jpeg" alt="School Faculty 1">
+            <img src="images/science 2.jpg" alt="Science 2">
+            <img src="images/science exebition1.jpg" alt="Science Exhibition 1">
+            <img src="images/science.jpg" alt="Science">
+            
+            <img src="images/students1.jpeg" alt="Students 1">
+            <img src="images/students2.jpeg" alt="Students 2">
+            <img src="images/vignan2025.jpg" alt="Vignan 2025">
+            <!-- Social and QR images are skipped as they are not event images -->
+            <!-- End of images/ folder images -->
+        </div>
+    </main>
+    <footer>
+        <div class="container footer-flex">
+            <div>
+                <p>&copy; Patil Primary School, Sindhanur 584128 | Developed by Mr. Shyamsundar Badiger</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
