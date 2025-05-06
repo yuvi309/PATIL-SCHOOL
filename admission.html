@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admission - Patil Primary School</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="advanced-tabs.css">
+    <link rel="stylesheet" href="mobile-responsive.css">
 </head>
 <body>
     <header>
         <div class="container nav-flex">
             <div class="logo">
-                <img src="images/logo.jpeg" alt="Patil Primary School Logo">
-                <span>PATIL PRIMARY SCHOOL<br><small>(Montessori Bala Mandira)</small></span>
+                <img src="images/logo.jpg" alt="Patil Primary School Logo">
+                <span>
+  <span class="patil-title">PATIL</span>
+  <span class="primary-title">Primary School</span>
+  <span class="montessori-title">Montessori Bala Mandira</span>
+</span>
             </div>
             <nav>
                 <ul>
@@ -24,16 +30,136 @@
                             <li><a href="facilities.html">Facilities</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" id="mandatoryNav">Mandatory Public Disclosure</a></li>
+                    <li><a href="mandatory.html" id="mandatoryNav">Mandatory Public Disclosure</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main class="admission-section container">
-        <h2>Admissions Open</h2>
+        <h2>Admissions Open 2025-26</h2>
         <p>Enroll now for the 2025-26 academic year! For more information, contact us or visit the school.</p>
-        <img src="images/phamplent.jpeg" alt="School Pamphlet" style="width: 100%;">
+        <section class="admission-form-wrapper">
+            <div class="admission-form-beautiful">
+                <h2>Admission Form 2025-26</h2>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdVc3VD1CRqHRCB0TtzQCePrY9F57l3ezO_g_ELWxpWHJm_5Q/viewform?embedded=true" width="100%" height="1604" frameborder="0" marginheight="0" marginwidth="0" style="min-width:300px;">Loading…</iframe>
+            </div>
+        </section>
+        <style>
+        .admission-form-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 400px;
+            margin: 2rem 0;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            padding: 2rem 0;
+        }
+        .admission-form-beautiful {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(42,125,173,0.18), 0 1.5px 8px rgba(67,160,71,0.07);
+            border: 1.5px solid rgba(42,125,173,0.13);
+            max-width: 700px;
+            width: 100%;
+            padding: 2.5rem 2rem 2rem 2rem;
+            margin: 0 auto;
+        }
+        .admission-form-beautiful h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #007bff;
+            letter-spacing: 1px;
+            font-weight: 800;
+            text-shadow: 0 2px 8px rgba(42,125,173,0.08);
+        }
+        .admission-form-beautiful iframe {
+            border-radius: 14px;
+            border: 1.5px solid #e0eafc;
+            box-shadow: 0 2px 18px rgba(42,125,173,0.08);
+            width: 100%;
+            min-width: 300px;
+            max-width: 100%;
+            background: #f8fbff;
+            transition: box-shadow 0.3s;
+        }
+        .admission-form-beautiful iframe:focus {
+            box-shadow: 0 4px 32px rgba(42,125,173,0.18);
+        }
+        @media (max-width: 800px) {
+            .admission-form-beautiful {
+                padding: 1.5rem 0.5rem 1rem 0.5rem;
+                max-width: 100vw;
+            }
+        }
+        
+        .admission-form-beautiful .form-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+        .admission-form-beautiful .form-group {
+            flex: 1 1 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        .admission-form-beautiful label {
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+        .admission-form-beautiful label span {
+            color: #e63946;
+            margin-left: 2px;
+        }
+        .admission-form-beautiful input,
+        .admission-form-beautiful select,
+        .admission-form-beautiful textarea {
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            background: #f8f9fa;
+            transition: border-color 0.2s;
+        }
+        .admission-form-beautiful input:focus,
+        .admission-form-beautiful select:focus,
+        .admission-form-beautiful textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .admission-form-beautiful textarea {
+            resize: vertical;
+        }
+        .admission-form-beautiful .form-submit-btn {
+            background: linear-gradient(90deg, #007bff 60%, #00b4d8 100%);
+            color: #fff;
+            border: none;
+            padding: 0.9rem 2.3rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 0 auto;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.09);
+            transition: background 0.2s;
+        }
+        .admission-form-beautiful .form-submit-btn:hover {
+            background: linear-gradient(90deg, #0056b3 60%, #0096c7 100%);
+        }
+        @media (max-width: 700px) {
+            .admission-form-beautiful .form-row {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
+            .admission-form-beautiful {
+                padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+            }
+        }
+        </style>
     </main>
     <footer>
         <div class="container footer-flex">
